@@ -1,0 +1,10 @@
+{
+  "name": "lessons",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "async": "1.5.2"
+  }
+}

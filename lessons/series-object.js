@@ -1,25 +1,7 @@
-/**
-## Challenge
-
-Write a program that will receive two URLs as the first and second command-line arguments.
-
-Using http.get, create a GET request to these URLs and pass the response body
-to the callback.
-
-Pass in an object of task functions, using the property names requestOne and
-requestTwo, to async.series.
-
-console.log the results in the callback for series when all the task functions
-have completed.
-*/
-
 var async = require('async');
-var fs = require('fs');
 var http = require('http');
-// var path = process.argv[2];
 
 async.series({
-
   requestOne: function(done) {
     var buffer = '';
 

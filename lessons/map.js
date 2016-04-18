@@ -1,19 +1,24 @@
 var async = require('async');
 var http = require('http');
 
-async.each(process.argv.slice(2), function(url, done) {
+async.map(process.argv.slice(2), function(url, done) {
   http.get(url, function(res) {
+    var buffer = '';
+
     res.on('data', function(data) {
+      buffer += data.toString();
     });
 
     res.on('end', function(data) {
-      done(null);
+      return done(null, buffer);
     });
   }).on('error', function(error) {
     done(error);
   });
-}, function(error) {
+}, function(error, result) {
   if (error) {
     console.log(error);
+  } else {
+    console.log(result);
   }
 });
